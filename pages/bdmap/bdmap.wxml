@@ -1,0 +1,17 @@
+<view class="map_container"> 
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" 
+  include-points="{{markers}}" controls="{{controls}}" bindcontroltap="controltap" bindregionchange="viewChange"
+  bindmarkertap="makertap"></map> 
+</view> 
+<view class="place_info"> 
+  <input id="input_search" type="text" confirm-type="search" placeholder="搜索附近" bindconfirm="searchChars" value="{{searchInput}}" 
+    maxlength="20" 
+  />
+  <text>{{placeData.title}}</text> 
+  <text>{{placeData.address}}</text> 
+  <text>{{placeData.latitude}}</text> 
+  <text>{{placeData.longitude}}</text> 
+  <text>{{placeData.telephone}}</text> 
+  <!--<button type="primary" class="move_to_me" size="mini" bindtap="moveToLocation">+</button>-->
+
+</view>

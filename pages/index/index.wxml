@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="section" style="border:1px solid grey">
+    <input type="text" confirm-type="search" placeholder="搜索" bindconfirm="searchConf"/>
+  </view>
+  
+        <!--<map show-location="true" scale="18" bindtap="haveTap" show-location />-->
+  <!--<view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+
+    <text class="user-motto" wx:if="{{motto}}"
+    wx:for="{{motto}}" wx:for-index="idx" wx:for-item="itm">{{idx+1}}:{{itm}}</text>
+  </view>
+  <text class="whatsthat">{{ userInfo.city }}</text>-->
+  <scroll-view scroll-y="true" style="height: 800px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"
+    scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{markerInfs}}">
+
+    <block wx:for="{{markerInfs}}" class="scroll-view-item bc_green" >
+      <navigator url="/pages/bdmap/bdmap?lat={{item.latitude}}&lng={{item.longitude}}&add={{item.address}}&title={{item.title}}">
+        <button type="primary">{{item.title}}</button>
+        <text>{{item.address}}</text>
+        <text>LAT:{{item.latitude}}</text>
+        <text>lng:{{item.longitude}}</text>
+        <text>tel:{{item.telephone}}</text>
+
+      </navigator>
+    </block>
+
+  </scroll-view>
+
+  
+</view>

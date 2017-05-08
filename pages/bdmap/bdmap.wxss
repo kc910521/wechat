@@ -1,0 +1,29 @@
+/* pages/bdmap/bdmap.wxss */
+.map_container{
+    height: 450px;
+    width: 450px;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+.place_info {
+    padding: 0 5px;
+    line-height: 13px;
+    font-size: 12px;
+}
+.move_to_me{
+    position:absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 22px;
+    line-height: 30px;
+    z-index: 99999;
+}
+#input_search{
+    border: 1px solid darkgray;
+}
