@@ -12,6 +12,7 @@ var qqmapsdk;
 Page({ 
     data: { 
         markers: [], 
+        allMarkers: [],
         latitude: 0, 
         longitude: 0, 
         placeData: {},
@@ -44,7 +45,7 @@ Page({
     makertap: function(e) { 
         var that = this; 
         var id = e.markerId; 
-        that.showSearchInfo(this.data.wxMarkerData, id); 
+        that.showSearchInfo(wxMarkerData, id); 
         // that.changeMarkerColor(wxMarkerData, id); 
     }, 
     onLoad: function(options) { 
@@ -75,9 +76,9 @@ Page({
             that.setData({ 
                 markers: Utils.converToShowPoint([dtog]),
                 latitude: options.lat,
-                longitude: options.lng,
-                wxMarkerData: [dtog]
+                longitude: options.lng
             });
+            wxMarkerData = [dtog]
             this.displayPointInf(dtog);
 
         }
@@ -103,18 +104,33 @@ Page({
                 console.log('no data')
             }
         }//,
-        // wx.getLocation({
-        //     type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-        //     success: function (res) {
-        //         console.log(res)
-        //         var latitude = res.latitude; 
-        //         var longitude = res.longitude; 
+        wx.getLocation({
+            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+            success: function (res) {
+                console.log(res)
+                let aps = [];
+                aps = aps.concat(that.data.markers);
+                let dtog = {
+                    id: 0,
+                    location: {
+                        lat: res.latitude,
+                        lng: res.longitude
+                    },
+                    tel: 'options.telephone',
+                    title: 'options.title',
+                    address: 'options.add'
+                };
+                aps.push(dtog);
+                that.setData({ 
+                    allMarkers: aps
+                });
 
-        //     },
-        //     cancel: function(e){
-        //         console.log("wx.getLocation error");
-        //     }
-        // });
+
+            },
+            cancel: function(e){
+                console.log("wx.getLocation error");
+            }
+        });
     }, 
     createMarker(point){
         let latitude = point.latitude; 

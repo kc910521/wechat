@@ -21,10 +21,10 @@
     <block wx:for="{{markerInfs}}" class="scroll-view-item bc_green" >
       <navigator url="/pages/bdmap/bdmap?lat={{item.latitude}}&lng={{item.longitude}}&add={{item.address}}&title={{item.title}}">
         <button type="primary">{{item.title}}</button>
-        <text>{{item.address}}</text>
-        <text>LAT:{{item.latitude}}</text>
-        <text>lng:{{item.longitude}}</text>
-        <text>tel:{{item.telephone}}</text>
+        <text>{{item.address}}；</text>
+        <!--<text>LAT:{{item.latitude}}</text>
+        <text>lng:{{item.longitude}}</text>-->
+        <text>电话:{{item.telephone}}</text>
 
       </navigator>
     </block>

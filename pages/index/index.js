@@ -47,7 +47,6 @@ Page({//  ===================================page
     qqmapsdk.search({
       keyword: chars,
       success: function(dt){
-        console.log("11go");
         if (dt.status == 0){
           that.setData({
             markerInfs:Ut.converToShowPoint(dt.data)

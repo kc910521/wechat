@@ -1,6 +1,6 @@
 <view class="map_container"> 
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" 
-  include-points="{{markers}}" controls="{{controls}}" bindcontroltap="controltap" bindregionchange="viewChange"
+  include-points="{{allMarkers}}" controls="{{controls}}" bindcontroltap="controltap" bindregionchange="viewChange"
   bindmarkertap="makertap"></map> 
 </view> 
 <view class="place_info"> 
