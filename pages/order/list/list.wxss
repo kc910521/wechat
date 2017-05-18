@@ -1,0 +1,7 @@
+/* list.wxss */
+.margin_up{
+  margin-top: 20rpx;
+}
+.margin_bot{
+  margin-bottom: 20rpx;
+}

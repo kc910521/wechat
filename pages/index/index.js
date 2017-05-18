@@ -10,34 +10,57 @@ var qqmapsdk;
 Page({//  ===================================page
   data: {
     motto: ['Hello World','ssssss'],
-    userInfo: {},
     toView: 'red',
     scrollTop: 100,
     markerInfs: []
   },
+  onShareAppMessage: function () {
+    return {
+      title: '自定义转发标题',
+      path: '/page/index?id=123',
+      success: function (res) {
+        // 转发成功
+        console.log(res);
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  goToPos:function(e){
+    console.log(e);
+    let bobj = e.currentTarget.dataset;
+    let openLocationPm = {
+      latitude: Number(bobj.latitude),
+      longitude: Number(bobj.longitude),
+      name: bobj.title,
+      address: bobj.address,
+      tel: bobj.telephone,
+      scale: 11
+    };
+    wx.openLocation(openLocationPm)
+    // wx.navigateTo({
+    //   url: '/pages/bdmap/bdmap?id='
+    //     + bobj.id + '&lat=' 
+    //     + bobj.latitude + '&lng=' 
+    //     + bobj.longitude + '&add=' 
+    //     + bobj.address + '&title=' 
+    //     + bobj.title + '&tel=' 
+    //     + bobj.telephone
+    // })
   },
   onLoad: function () {
     console.log('onLoad')
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+
     qqmapsdk = new QQMapWX({
         key: 'ITKBZ-XISRJ-ELIFN-FUJAP-XG4C5-RKFZE'
     });
   },
   onReady: function(){
     //  this.haveHttp()
-    this.haveSearch('酒店',0);
+    this.haveSearch('停车场',0);
   },
   searchConf: function(e){
     this.haveSearch(e.detail.value,0);
@@ -112,6 +135,11 @@ Page({//  ===================================page
       fail: function(e){
         console.log(e)
       }
+    })
+  },
+  orderPos: function (e) {
+    wx.navigateTo({
+      url: '../../pages/order/list/list',
     })
   }
 })

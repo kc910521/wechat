@@ -1,0 +1,13 @@
+/* detail.wxss */
+
+.details_font{
+  font-size:32rpx;
+  line-height:77rpx;
+  color:#222;
+
+}
+.img{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: rebeccapurple;
+}

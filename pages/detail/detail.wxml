@@ -1,0 +1,68 @@
+<!--detail.wxml-->
+<view class="my_container">
+  <text>停车场详情</text>
+</view>
+<view class="my_container border_top details_font">
+  <view class="image_container">
+    <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495704444&di=55d77a35c27b1c8384c207502c6d6669&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.yhouse.com%2Flife%2Fimage%2F20140513%2F20140513155139_905.jpg"></image>
+
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>停车场名称</text></view>
+    <view class="column right">
+      <text>完颜阿骨打122331</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view class="column">
+      <text>停车场类型</text></view>
+    <view class="column right">
+      <text>室内/室外</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>车位数量</text></view>
+    <view class="column right">
+      <text>11/111</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>计费价格</text></view>
+    <view class="column right">
+      <text class="nowarp_space">\n07：00 - 20：00 - 10元/小时</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>联系方式</text></view>
+    <view class="column right">
+      <text>122331</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>位置</text></view>
+    <view class="column right">
+      <text>嘻嘻嘻嘻嘻嘻嘻嘻嘻</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>备注</text></view>
+    <view class="column right">
+      <text>嘻嘻嘻</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column padding_sm">
+      <button size="default" type="primary" bindtap="toOrder">预约</button>
+    </view>
+    <view class="column padding_sm">
+      <button size="default" type="default">去这里</button>
+    </view>
+  </view>
+</view>

@@ -1,24 +1,36 @@
 {
-  "pages":[
+  "pages": [
+    "pages/detail/detail",
+    "pages/bdmap/bdmap",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/bdmap/bdmap"
+    "pages/me/me",
+    "pages/pay/pay",
+    "pages/me/vkList/vk",
+    "pages/order/list/list",
+    "pages/order/have/confirm"
   ],
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "日志"
-    }
+    "list": [
+      {
+        "pagePath": "pages/detail/detail",
+        "text": "附近"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "列表"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
     ]
   },
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f08f08",
     "navigationBarTitleText": "havehavefan",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "networkTimeout": {
     "request": 10000,

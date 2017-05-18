@@ -1,33 +1,39 @@
 <!--index.wxml-->
-<view class="container">
+<view class="my_container">
   <view class="section" style="border:1px solid grey">
     <input type="text" confirm-type="search" placeholder="搜索" bindconfirm="searchConf"/>
   </view>
-  
-        <!--<map show-location="true" scale="18" bindtap="haveTap" show-location />-->
-  <!--<view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
 
-    <text class="user-motto" wx:if="{{motto}}"
-    wx:for="{{motto}}" wx:for-index="idx" wx:for-item="itm">{{idx+1}}:{{itm}}</text>
-  </view>
-  <text class="whatsthat">{{ userInfo.city }}</text>-->
   <scroll-view scroll-y="true" style="height: 800px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"
     scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{markerInfs}}">
 
-    <block wx:for="{{markerInfs}}" class="scroll-view-item bc_green" >
-      <navigator url="/pages/bdmap/bdmap?lat={{item.latitude}}&lng={{item.longitude}}&add={{item.address}}&title={{item.title}}">
-        <button type="primary">{{item.title}}</button>
-        <text>{{item.address}}；</text>
-        <!--<text>LAT:{{item.latitude}}</text>
-        <text>lng:{{item.longitude}}</text>-->
-        <text>电话:{{item.telephone}}</text>
+    <view wx:for="{{markerInfs}}" vx:wx:key="{{item.title}}" class="scroll-view-item bc_green" >
 
-      </navigator>
-    </block>
+        <text class="txt_title">{{item.title}}\n</text>
+        <text class="txt_detail">地址:{{item.address}}\n</text>
+        <text class="txt_detail">电话:{{item.telephone}}\n</text>
+        <text class="txt_detail">距离:-\t</text>
+        <text class="txt_detail">剩余车位:-\t</text>
+        <text class="txt_detail">价格:13\n</text>
+        <view class="controll_panel_mini">
+          <button size="mini" type="primary" class="btn_lt" bindtap="orderPos">预约</button>
+          <text>\t</text>
+          <!--<navigator hover-class="navigator-hover" class="btn_jump"
+      url="/pages/bdmap/bdmap?id={{item.id}}&lat={{item.latitude}}&lng={{item.longitude}}&add={{item.address}}&title={{item.title}}&tel={{item.telephone}}" >-->
+          <button size="mini" class="btn_lt" bindtap="goToPos" 
+            data-id="{{item.id}}" 
+            data-latitude="{{item.latitude}}"
+            data-longitude="{{item.longitude}}" 
+            data-address="{{item.address}}" 
+            data-title="{{item.title}}" 
+            data-telephone="{{item.telephone}}" 
+          >去这里</button>
+          <!--</navigator>-->
+        </view>
+                <!--<text>LAT:{{item.latitude}}</text>
+        <text>lng:{{item.longitude}}</text>-->
+      
+    </view>
 
   </scroll-view>
 

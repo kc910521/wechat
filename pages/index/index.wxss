@@ -1,24 +1,4 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 20px;
-}
 map {
   position:relative;
   width:100%;
@@ -27,7 +7,28 @@ map {
 
 }
 .scroll-view-item{
-  height: 100px;
+  height: 260rpx;
   border-bottom: 1px solid darkgray; 
-  background-color: gray;
+  padding-left: 15rpx;
+  /*background-color: gray;*/
+}
+.section{
+  width: 98%;
+  margin-bottom: 8rpx;
+}
+
+.txt_title{
+  font-size: 33rpx;
+  font-weight: bold;
+}
+.txt_detail{
+  font-size: 24rpx;
+  
+}
+.txt_detail,.txt_title{
+  color: #333;
+}
+
+.controll_panel_mini{
+  padding-top: 6rpx;
 }

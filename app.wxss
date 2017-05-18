@@ -8,3 +8,50 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.row{
+  display: flex;  
+  flex-direction: row; 
+}
+.column{
+  display: inline-block;
+  flex:1;
+}
+.right{
+  text-align: right;
+}
+.my_container{
+  padding: 20rpx 15rpx;
+}
+
+
+
+.border_top{
+  border-top:1px solid gray;
+}
+.nowarp_space{
+  white-space: nowrap;
+}
+.padding_sm{
+  padding: 8rpx;
+}
+.little_font{
+  font-size:30rpx;
+  line-height: 32rpx;
+}
+.huge_line_hei{
+  line-height: 60rpx;
+}
+.image_container{
+  width: 100%;
+  align-items:center;
+  justify-content:space-between;
+  text-align: center;
+  flex-direction:unset;
+
+
+}
+.image_container>image{
+  width: 600rpx;
+  height: 350rpx;
+}

@@ -1,0 +1,73 @@
+/* me.wxss */
+.userinfo {
+  /*display: flex;
+  flex-direction: column;
+  align-items: left;*/
+  display: flex;  
+  flex-direction: row; 
+  align-items: left;
+  width: 50%;
+  line-height: 30px;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+.container_i {
+  background-color: gainsboro;
+}
+.container_j {
+  padding: auto 0px;
+  text-align: center;
+  width:100%;
+  height:400px;
+  display:block;
+  align-items:center;
+
+}
+.block_normal{
+  width: 100%;
+  height: 100rpx;
+  color: black;
+  margin: 10rpx;
+  text-align: left;
+  border-bottom: 1px solid #aaa;
+  /*display: inline-block;*/
+}
+.block_normal:hover{
+  background-color: chocolate;
+}
+.block_normal image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 15rpx;
+  /*margin:20rpx 10rpx;*/
+}
+.block_normal text{
+  margin-left: 6px;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.usrinf_right_blk,.usrinf_left_blk{
+  display: inline-block;
+  width: 35%;
+  flex:1;
+}
+.usrinf_left_blk {
+  text-align: right;
+}
+.usrinf_right_blk {
+  padding-top:18rpx;
+  font-size:32rpx;
+}
+.usrinf_right_blk>text{
+  white-space: nowrap;
+}

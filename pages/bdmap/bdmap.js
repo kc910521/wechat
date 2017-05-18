@@ -13,10 +13,11 @@ Page({
     data: { 
         markers: [], 
         allMarkers: [],
-        latitude: 0, 
-        longitude: 0, 
+        latitude: 39, 
+        longitude: 116, 
         placeData: {},
         searchInput: '',
+        openLocationPm: {},
         controls: [{
             id: 99000,
             iconPath: '../../img/marker_yellow.png',
@@ -40,7 +41,7 @@ Page({
         this.mapCtx = wx.createMapContext('map')
         this.mapCtx.moveToLocation()
         //如果有传参，初始化地图内容
-
+        
     },
     makertap: function(e) { 
         var that = this; 
@@ -61,26 +62,52 @@ Page({
         //     ))
         // }
         // 调用接口
-        if (options && options.title){
-            console.log(options);
-            let dtog = {
-                id: 41,
-                location: {
-                    lat: options.lat,
-                    lng: options.lng
-                },
-                tel: options.telephone,
-                title: options.title,
-                address: options.add
-            };
-            that.setData({ 
-                markers: Utils.converToShowPoint([dtog]),
-                latitude: options.lat,
-                longitude: options.lng
-            });
-            wxMarkerData = [dtog]
-            this.displayPointInf(dtog);
-
+        if (options && options.id){
+            setTimeout(function(){
+                console.log(options);
+                let dtog = {
+                    id: options.id,
+                    location: {
+                        lat: options.lat,
+                        lng: options.lng
+                    },
+                    tel: options.tel,
+                    title: options.title,
+                    address: options.add
+                };
+                that.setData({ 
+                    markers: Utils.converToShowPoint([dtog]),
+                    latitude: options.lat,
+                    longitude: options.lng
+                });
+                wxMarkerData = [dtog]
+                that.displayPointInf(dtog);
+                wx.getLocation({
+                    type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+                    success: function (res) {
+                        console.log(res)
+                        let aps = [];
+                        aps = aps.concat(that.data.markers);
+                        let dtog = {
+                            id: 0,
+                            location: {
+                                lat: res.latitude,
+                                lng: res.longitude
+                            },
+                            tel: 'options.telephone',
+                            title: 'options.title',
+                            address: 'options.add'
+                        };
+                        aps.push(dtog);
+                        that.setData({ 
+                            allMarkers: aps
+                        });
+                    },
+                    cancel: function(e){
+                        console.log("wx.getLocation error");
+                    }
+                });
+            },300)
         }
         fail = function(data) { 
             console.log(data) 
@@ -94,43 +121,17 @@ Page({
                 that.setData({ 
                     markers: Utils.converToShowPoint(wxMarkerData)
                 }); 
-                that.setData({ 
-                    latitude: wxMarkerData[0].location.lat 
-                }); 
-                that.setData({ 
-                    longitude: wxMarkerData[0].location.lng 
-                }); 
+                // that.setData({ 
+                //     latitude: wxMarkerData[0].location.lat 
+                // }); 
+                // that.setData({ 
+                //     longitude: wxMarkerData[0].location.lng 
+                // }); 
             }else {
                 console.log('no data')
             }
         }//,
-        wx.getLocation({
-            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-            success: function (res) {
-                console.log(res)
-                let aps = [];
-                aps = aps.concat(that.data.markers);
-                let dtog = {
-                    id: 0,
-                    location: {
-                        lat: res.latitude,
-                        lng: res.longitude
-                    },
-                    tel: 'options.telephone',
-                    title: 'options.title',
-                    address: 'options.add'
-                };
-                aps.push(dtog);
-                that.setData({ 
-                    allMarkers: aps
-                });
 
-
-            },
-            cancel: function(e){
-                console.log("wx.getLocation error");
-            }
-        });
     }, 
     createMarker(point){
         let latitude = point.latitude; 
@@ -145,6 +146,20 @@ Page({
             height: 48
         };
         return marker;
+    },
+    calling: function (e) {
+      let that = this;
+      if (that.data.openLocationPm && that.data.openLocationPm.tel){
+        wx.makePhoneCall({
+          phoneNumber: that.data.openLocationPm.tel + '', //此号码并非真实电话号码，仅用于测试
+          success: function () {
+            console.log("拨打电话成功！" + that.data.openLocationPm.tel)
+          },
+          fail: function () {
+            console.log("拨打电话失败！" + that.data.openLocationPm.tel)
+          }
+        })
+      }
     },
     // getCenterLocation: function () {
     //     this.mapCtx.getCenterLocation({
@@ -183,34 +198,43 @@ Page({
         //     iconTapPath: '../../img/marker_yellow.png' 
         // }); 
     },
+    beginNav: function(e){
+      if (this.data.openLocationPm){
+        wx.openLocation(this.data.openLocationPm)
+      }
+    },
     showSearchInfo: function(data, i) { 
         var that = this; 
         console.log('------------============-------------' + i)
+
         console.log(data)
         for (let idx = 0;idx < data.length;idx ++){
             if (i == data[idx].id){
                 let sdata = data[idx];
-                this.displayPointInf(sdata)
-                wx.openLocation({
-                    latitude: sdata.location.lat,
-                    longitude: sdata.location.lng,
-                    name: sdata.title,
-                    address: sdata.address,
-                    scale:11
-                })
+                that.displayPointInf(sdata);
+                break;
             }
         }
 
     }, 
     displayPointInf: function(sdata){
+      let ph1 = Utils.strTrim(sdata.tel);
         this.setData({ 
             placeData: { 
                 title: '名称：' + sdata.title + '\n', 
                 address: '地址：' + sdata.address + '\n', 
                 longitude: '经度：' + sdata.location.lng + '\n', 
                 latitude: '纬度：' + sdata.location.lat + '\n', 
-                telephone: '电话：' + sdata.tel
-            } 
+                telephone: ph1 == '' ? null : ph1
+            },
+            openLocationPm: {
+              latitude: Number(sdata.location.lat),
+              longitude: Number(sdata.location.lng),
+              name: sdata.title,
+              address: sdata.address,
+              tel: sdata.tel,
+              scale: 11
+            }
         });
     },
     viewChange: function(e){
@@ -218,4 +242,3 @@ Page({
         // console.log(e)
     }
 })
-
