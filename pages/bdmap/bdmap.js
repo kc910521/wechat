@@ -178,25 +178,36 @@ Page({
             searchInput: strs
         }); 
         console.log(this.data.searchInput)
+        this.searchByPoint(strs,null);
+    },
+    searchByPoint: function(searchStr,ptObj){
+      if (!searchStr && searchStr == ''){
+        return;
+      }
+      if (ptObj == undefined){
         qqmapsdk.search({
-            keyword: strs,
-            success: success,
-            fail: function(res) {
-                console.log(res);
-            },
-            complete: function(res) {
-                console.log(res);
-            }
+          keyword: searchStr,
+          success: success,
+          fail: function (res) {
+            console.log(res);
+          },
+          complete: function (res) {
+            console.log(res);
+          }
         });
-        // BMap.search({ 
-        //     "query": e.detail.value, 
-        //     fail: fail, 
-        //     success: success, 
-        //     // 此处需要在相应路径放置图片文件 
-        //     iconPath: '../../img/marker_red.png', 
-        //     // 此处需要在相应路径放置图片文件 
-        //     iconTapPath: '../../img/marker_yellow.png' 
-        // }); 
+      }else{
+        qqmapsdk.search({
+          keyword: searchStr,
+          success: success,
+          location: ptObj,
+          fail: function (res) {
+            console.log(res);
+          },
+          complete: function (res) {
+            console.log(res);
+          }
+        });
+      }
     },
     beginNav: function(e){
       if (this.data.openLocationPm){
@@ -238,7 +249,19 @@ Page({
         });
     },
     viewChange: function(e){
-        // console.log("--------------vc-----------------")
-        // console.log(e)
+      
+      let that = this;
+      if (e.type === 'end' && this.mapCtx){
+        console.log("--------------vc-----------------" + (e.type === 'end' && this.mapCtx))
+        this.mapCtx.getCenterLocation({
+          success: function (res) {
+            console.log(res.latitude)
+            that.searchByPoint(that.data.searchInput,{
+              latitude: res.latitude,
+              longitude: res.longitude
+            });
+          }
+        })
+      }
     }
 })

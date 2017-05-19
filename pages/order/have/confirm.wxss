@@ -1,1 +1,4 @@
 /* confirm.wxss */
+.tparea{
+  margin-top: 28rpx;
+}

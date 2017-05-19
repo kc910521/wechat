@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/detail/detail",
     "pages/bdmap/bdmap",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/logs/logs",
     "pages/me/me",
@@ -13,7 +13,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/detail/detail",
+        "pagePath": "pages/bdmap/bdmap",
         "text": "附近"
       },
       {

@@ -12,6 +12,8 @@
 .row{
   display: flex;  
   flex-direction: row; 
+  width:100%;
+
 }
 .column{
   display: inline-block;
@@ -35,12 +37,21 @@
 .padding_sm{
   padding: 8rpx;
 }
+.padding_mid{
+  padding: 16rpx;
+}
 .little_font{
   font-size:30rpx;
   line-height: 32rpx;
 }
+.huge_font{
+  font-size:44rpx;
+  line-height: 65rpx;
+  font-weight: bold;
+  padding-bottom: 10dpx;
+}
 .huge_line_hei{
-  line-height: 60rpx;
+  line-height: 70rpx;
 }
 .image_container{
   width: 100%;
@@ -54,4 +65,7 @@
 .image_container>image{
   width: 600rpx;
   height: 350rpx;
+}
+.left_layout{
+  align-items:baseline;
 }
