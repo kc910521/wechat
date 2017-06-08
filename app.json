@@ -8,7 +8,8 @@
     "pages/pay/pay",
     "pages/me/vkList/vk",
     "pages/order/list/list",
-    "pages/order/have/confirm"
+    "pages/order/have/confirm",
+    "pages/bluetooth/btlist"
   ],
   "tabBar": {
     "list": [

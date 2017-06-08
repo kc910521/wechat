@@ -28,12 +28,26 @@ Page({
                 height: 50
             },
             clickable: true
+        },{
+            id: 99001,
+            iconPath: '../../img/marker_yellow.png',
+            position: {
+              left: 170,
+              top: 370,
+              width: 50,
+              height: 50
+            },
+            clickable: true
         }]
     }, 
     controltap(e) {
         console.log(e);
         if (e.controlId == 99000){
             this.mapCtx.moveToLocation()
+        } else if (e.controlId == 99001){
+            wx.navigateTo({
+              url: '/pages/bluetooth/btlist',
+            })
         }
     },
     onReady: function (e) {
@@ -108,14 +122,13 @@ Page({
                     }
                 });
             },300)
-        }
+        };
         fail = function(data) { 
             console.log(data) 
         }; 
         success = function(data) { 
             
             wxMarkerData = data.data; 
-            console.log("-----------------------------------" + wxMarkerData.length)
             console.log(data)
             if (wxMarkerData.length > 0){
                 that.setData({ 
@@ -143,7 +156,8 @@ Page({
             latitude: latitude,
             longitude: longitude,
             width: 25,
-            height: 48
+            height: 48,
+            callout: { content: 'ccc', color: '#df3', fontSize: 20, bgColor: '#29a', borderRadius: 1, padding: 2, display:'ALWAYS' }
         };
         return marker;
     },
@@ -161,6 +175,29 @@ Page({
         })
       }
     },
+    // btConn: function(){
+    //   let that = this;
+    //   console.log("btstart11111111111111111111111111");
+    //   wx.openBluetoothAdapter({
+    //     success: function (res) {
+    //       console.log("btstart============================");
+    //       console.log(res);
+    //       wx.startBluetoothDevicesDiscovery({
+    //         //services: ['FEE7'],
+    //         success: function (res1) {
+    //           wx.getBluetoothDevices({
+    //             success: function (res44) {
+    //               console.log(res44)
+    //               that.setData({
+    //                 bluetooth: JSON.stringify(res44)
+    //               }); 
+    //             }
+    //           })
+    //         }
+    //       })
+    //     }
+    //   })
+    // },
     // getCenterLocation: function () {
     //     this.mapCtx.getCenterLocation({
     //         success: function(res){
@@ -170,10 +207,8 @@ Page({
     //     })
     // },
     searchChars: function (e){
-        console.log("---333----")
         var that = this;
         let strs = e.detail.value;
-        console.log("---333----" + strs)
         that.setData({ 
             searchInput: strs
         }); 
@@ -184,6 +219,8 @@ Page({
       if (!searchStr && searchStr == ''){
         return;
       }
+      console.log("whathapp?")
+      console.log(ptObj)
       if (ptObj == undefined){
         qqmapsdk.search({
           keyword: searchStr,
@@ -216,8 +253,6 @@ Page({
     },
     showSearchInfo: function(data, i) { 
         var that = this; 
-        console.log('------------============-------------' + i)
-
         console.log(data)
         for (let idx = 0;idx < data.length;idx ++){
             if (i == data[idx].id){
@@ -252,9 +287,10 @@ Page({
       
       let that = this;
       if (e.type === 'end' && this.mapCtx){
-        console.log("--------------vc-----------------" + (e.type === 'end' && this.mapCtx))
-        this.mapCtx.getCenterLocation({
+        console.log("--------------vc-----------------" + (e.type === 'end' && this.mapCtx));
+        that.mapCtx.getCenterLocation({
           success: function (res) {
+            console.log("hf");
             console.log(res.latitude)
             that.searchByPoint(that.data.searchInput,{
               latitude: res.latitude,
