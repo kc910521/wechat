@@ -1,0 +1,66 @@
+<!--detail.wxml-->
+<view class="container little_font" style="margin:20rpx 0rpx;padding:20rpx 0;">
+  <view class="gap_left">
+    <view class="row">
+      <view class="column" style="font-weight:bold;">
+        <text>华清商务会馆停车场</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>\n</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>订单号：888888888888888888</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>车位号：1003</text>
+      </view>
+      <view class="column">
+        <text>状态：已支付</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>订单类型：停车</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>开始时间：2017-05-04 12：33：30</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>结束时间：2017-05-11 12：33：30</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>停车时长：2小时23分</text>
+      </view>
+    </view>
+      <view class="row">
+    <view class="column">
+        <text>消费金额：15元</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column">
+        <text>\n</text>
+      </view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column" style="text-align:center;">
+      <button type="primary" size="mini">立即付款</button>
+    </view>
+  </view>
+  <view class="abs_pos" style="width:64rpx;height:64rpx;position:absolute;top:60rpx;right:100rpx;">
+    <image style="width:64rpx;height:64rpx;" src="../../../img/233.png"></image>
+  </view>
+</view>

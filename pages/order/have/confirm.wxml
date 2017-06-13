@@ -1,8 +1,12 @@
 <!--confirm.wxml-->
-<view class="container huge_line_hei left_layout padding_sm">
-  <text class="huge_font">您正在预约：\nxxxxxxxx停车场</text>
-  <text class="little_font huge_line_hei">本次预约费用：10元</text>
-  <text class="little_font huge_line_hei">确认后系统将为您随机分配车位，车位保留15分钟</text>
+<view class="container huge_line_hei padding_sm" style="padding-left:90rpx;padding-right:90rpx;padding-top:100rpx;">
+  <text class="huge_font">正在预约</text>
+  <text class="huge_font">xxxxxxxx停车场</text>
+  <text>\n</text>
+  <view class="left_layout">
+    <text class="little_font huge_line_hei">本次预约费用：</text><text class="huge_font">10元\n</text>
+    <text class="little_font huge_line_hei">确认后系统将为您随机分配车位，车位保留</text><text class="huge_font">15分钟</text>
+  </view>
   <view class="row tparea">
     <view class="column padding_mid">
       <button bindtap="orderPos" type="primary">确认</button>

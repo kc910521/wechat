@@ -21,7 +21,21 @@ Page({
     // 页面渲染完成
   },
   onShow:function(){
-    // 页面显示
+    //判断是否有登陆信息
+    if (wx.getStorageSync('key')){
+
+    }else{
+      wx.setStorage({
+        key: "key",
+        data: "value"
+      })
+      // 页面显示
+      wx.redirectTo({
+        url: '/pages/me/login/login',
+      })
+    }
+
+
   },
   onHide:function(){
     // 页面隐藏

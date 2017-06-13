@@ -1,0 +1,9 @@
+<!--manage.wxml-->
+<import src="../../common/manage.wxml"/>
+
+<view class="page topics">
+  <!--<template is="nav" data="{{ navList, activeIndex }}"/>-->
+  <template is="manage" data="{{ postsList, hidden }}"/>
+</view>
+
+

@@ -1,25 +1,30 @@
 <!--list.wxml-->
 <scroll-view class="scroll-posts-list"  scroll-y="true" style="height:100%"  bindscrolltolower="lower">
-  <view class="blk_list padding_sm huge_line_hei">
-    <text>xxxx停车场\n</text>
-    <view class="row little_font margin_up">
-      <view class="column">
-        <text>车位号：xxxxx</text>
+  <view class="blk_list huge_line_hei container padding_4_mid" >
+    <view style="width:100%;">
+      <view class="row" style="text-align:center;">
+        <view class="column"><text class="huge_font">xxxx停车场</text></view>
       </view>
-      <view class="column">
-        <text>状态：xxxxx</text>
+      <view class="row">
+        <view class="column">
+          <text class="little_font">车位号：103</text>
+        </view>
+        <view class="column">
+          <text class="little_font">状态：已预约</text>
+        </view>
       </view>
+      <text class="little_font margin_bot">预约时间：xxxxxxxxxxxxxxxxx</text>
     </view>
-    <text class="little_font margin_bot">预约时间：xxxxx</text>
-    <view class="row">
-      <view class="column padding_sm">
-        <button type="default">去这里</button>
+    
+    <view class="row" style="margin-top:60rpx;">
+      <view class="column padding_mini">
+        <button size="mini" type="primary">去这里</button>
       </view>
-      <view class="column padding_sm">
-        <button type="default">立即开锁</button>
+      <view class="column padding_mini">
+        <navigator url="/pages/unlock/unlock"><button size="mini" type="primary">立即开锁</button></navigator>
       </view>
-      <view class="column padding_sm">
-        <button type="default">取消预约</button>
+      <view class="column padding_mini">
+        <button size="mini" type="default">取消预约</button>
       </view>
     </view>
   </view>

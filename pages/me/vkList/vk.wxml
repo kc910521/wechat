@@ -1,2 +1,11 @@
 <!--vk.wxml-->
-<text>vk.wxml</text>
+<view class="container">
+  <textarea style="border:1px solid #CCC" />
+  <text>\n\n</text>
+  <view class="row">
+    <view class="column" style="text-align:center;flex:1;">
+      <button type="primary">提交</button>
+    </view>
+  </view>
+
+</view>

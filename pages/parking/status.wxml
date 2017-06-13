@@ -1,0 +1,51 @@
+<!--status.wxml-->
+<view class="container little_font padding_4_mid">
+  <view class="row huge_font">
+    <view class="column" style="text-align:center;">
+      <text>华清商务会馆停车场</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>\n</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>车位号：1003</text>
+    </view>
+    <view class="column">
+      <text>状态：使用中</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>开始时间：2017-05-04 12：33：30</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>停车时长：2小时23分</text>
+    </view>
+  </view>
+    <view class="row">
+  <view class="column">
+      <text>消费金额：15元</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>\n</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column" style="text-align:center;">
+      <button type="primary" size="mini">结束停车</button>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column" style="text-align:center;">
+     <text class="font_warnning">* 结束后停车位地锁会自动升起，请将车开离停车位后再结束，请在停车位5米范围内结束停车。</text>
+    </view>
+  </view>
+</view>

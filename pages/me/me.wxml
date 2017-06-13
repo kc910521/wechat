@@ -1,30 +1,43 @@
 <!--me.wxml-->
 <view class="container_i">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <view class="usrinf_left_blk">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <navigator url="/pages/me/detail/detail">
+    <view  bindtap="bindViewTap" class="userinfo">
+      <view class="usrinf_left_blk">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      </view>
+      <view class="usrinf_right_blk">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text class="userinfo-nickname">\n{{userInfo.city}}</text>
+        <!--<text class="user-motto" wx:if="{{motto}}"
+        wx:for="{{motto}}" wx:for-index="idx" wx:for-item="itm">{{idx+1}}:{{itm}}</text>-->
+      </view>
     </view>
-    <view class="usrinf_right_blk">
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <text class="userinfo-nickname">\n{{userInfo.city}}</text>
-      <!--<text class="user-motto" wx:if="{{motto}}"
-      wx:for="{{motto}}" wx:for-index="idx" wx:for-item="itm">{{idx+1}}:{{itm}}</text>-->
-    </view>
-  </view>
-<!--<text class="whatsthat">{{ userInfo.city }}</text>-->
+  </navigator>
 </view>
 <view class="container_j">
 <!--/pages/pay/pay -->
   <view class="block_normal">
-    <navigator url="/pages/order/list/list">
+    <navigator url="/pages/order/manage/manage">
       <image src="../../img/marker_red.png"></image>
-      <text>我的预约</text>
+      <text>订单管理</text>
     </navigator>
   </view>
   <view class="block_normal">
+    <navigator url="/pages/order/list/list">
+      <image src="../../img/marker_red.png"></image>
+      <text>当前预约</text>
+    </navigator>
+  </view>
+      <!-- 
+    <navigator url="/pages/pay/pay">
+      <image src="../../img/marker_red.png"></image>
+      <text>付款记录</text>
+    </navigator>
+    -->
+  <view class="block_normal">
     <navigator url="/pages/me/vkList/vk">
       <image src="../../img/marker_red.png"></image>
-      <text>停车记录</text>
+      <text>意见反馈</text>
     </navigator>
   </view>
   <view class="block_normal">

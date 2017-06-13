@@ -46,7 +46,7 @@ Page({
             this.mapCtx.moveToLocation()
         } else if (e.controlId == 99001){
             wx.navigateTo({
-              url: '/pages/bluetooth/btlist',
+              url: '/pages/parking/status',
             })
         }
     },
@@ -282,6 +282,9 @@ Page({
               scale: 11
             }
         });
+        wx.navigateTo({
+          url: '/pages/detail/detail',
+        })
     },
     viewChange: function(e){
       

@@ -1,0 +1,4 @@
+/* status.wxss */
+.row{
+  margin-top: 20rpx;
+}

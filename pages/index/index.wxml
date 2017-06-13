@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="my_container">
-  <view class="section" style="border:1px solid grey">
+  <view class="section" style="border:1px solid grey;border-radius:3px;">
     <input type="text" confirm-type="search" placeholder="搜索" bindconfirm="searchConf"/>
   </view>
 
@@ -8,28 +8,38 @@
     scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{markerInfs}}">
 
     <view wx:for="{{markerInfs}}" vx:wx:key="{{item.title}}" class="scroll-view-item bc_green" >
-
-        <text class="txt_title">{{item.title}}\n</text>
-        <text class="txt_detail">地址:{{item.address}}\n</text>
-        <text class="txt_detail">电话:{{item.telephone}}\n</text>
-        <text class="txt_detail">距离:-\t</text>
-        <text class="txt_detail">剩余车位:-\t</text>
-        <text class="txt_detail">价格:13\n</text>
-        <view class="controll_panel_mini">
-          <button size="mini" type="primary" class="btn_lt" bindtap="orderPos">预约</button>
-          <text>\t</text>
-          <!--<navigator hover-class="navigator-hover" class="btn_jump"
-      url="/pages/bdmap/bdmap?id={{item.id}}&lat={{item.latitude}}&lng={{item.longitude}}&add={{item.address}}&title={{item.title}}&tel={{item.telephone}}" >-->
-          <button size="mini" class="btn_lt" bindtap="goToPos" 
-            data-id="{{item.id}}" 
-            data-latitude="{{item.latitude}}"
-            data-longitude="{{item.longitude}}" 
-            data-address="{{item.address}}" 
-            data-title="{{item.title}}" 
-            data-telephone="{{item.telephone}}" 
-          >去这里</button>
-          <!--</navigator>-->
+      <navigator url="/pages/detail/detail">
+        <view class="part1_inf">
+          <view class="l_pk_img">
+            <image src="../../img/pk.jpg"></image>
+          </view>
+          <view class="r_pk_inf">
+            <text class="txt_title">{{item.title}}\n</text>
+            <text class="txt_detail">地址:{{item.address}}\n</text>
+            <text class="txt_detail">电话:{{item.telephone}}\n</text>
+          </view>
         </view>
+        <view class="part2_inf">
+          <text class="txt_detail">距离:-\t</text>
+          <text class="txt_detail">剩余车位:-\t</text>
+          <text class="txt_detail">价格:13\n</text>
+        </view>
+      </navigator>
+      <view class="controll_panel_mini">
+        <button size="mini" type="primary" class="btn_lt" bindtap="orderPos">预约</button>
+        <text>\t</text>
+        <!--<navigator hover-class="navigator-hover" class="btn_jump"
+    url="/pages/bdmap/bdmap?id={{item.id}}&lat={{item.latitude}}&lng={{item.longitude}}&add={{item.address}}&title={{item.title}}&tel={{item.telephone}}" >-->
+        <button size="mini" class="btn_lt" bindtap="goToPos" 
+          data-id="{{item.id}}" 
+          data-latitude="{{item.latitude}}"
+          data-longitude="{{item.longitude}}" 
+          data-address="{{item.address}}" 
+          data-title="{{item.title}}" 
+          data-telephone="{{item.telephone}}" 
+        >去这里</button>
+        <!--</navigator>-->
+      </view>
                 <!--<text>LAT:{{item.latitude}}</text>
         <text>lng:{{item.longitude}}</text>-->
       

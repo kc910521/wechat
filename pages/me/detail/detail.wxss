@@ -1,0 +1,5 @@
+/* detail.wxss */
+.row{
+  padding: 40rpx 0px;
+  border-bottom: 1px solid #EEE;
+}

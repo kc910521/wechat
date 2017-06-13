@@ -18,10 +18,11 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+
 }
 .container_i {
-  background-color: gainsboro;
+  background-color: #348813;
+  color: white;
 }
 .container_j {
   padding: auto 0px;
@@ -38,7 +39,8 @@
   color: black;
   margin: 10rpx;
   text-align: left;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #EEE;
+  padding-left: 40rpx;
   /*display: inline-block;*/
 }
 .block_normal:hover{
@@ -60,6 +62,7 @@
   display: inline-block;
   width: 35%;
   flex:1;
+  color: white;
 }
 .usrinf_left_blk {
   text-align: right;

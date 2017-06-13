@@ -7,62 +7,113 @@
     <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495704444&di=55d77a35c27b1c8384c207502c6d6669&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.yhouse.com%2Flife%2Fimage%2F20140513%2F20140513155139_905.jpg"></image>
 
   </view>
-  <view class="row">
-    <view class="column">
-      <text>停车场名称</text></view>
-    <view class="column right">
-      <text>完颜阿骨打122331</text>
+  <view class="pk_inf_container little_font" style="padding-left:12%">
+    <view class="row">
+      <view class="column_head left">
+        <text>停车场名称：</text></view>
+      <view class="column left">
+        <text>完颜阿骨打122331</text>
+      </view>
     </view>
-  </view>
 
-  <view class="row">
-    <view class="column">
-      <text>停车场类型</text></view>
-    <view class="column right">
-      <text>室内/室外</text>
+    <view class="row">
+      <view class="column_head left">
+        <text>停车场类型：</text></view>
+      <view class="column left">
+        <text>室内/室外</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text>车位数量：</text></view>
+      <view class="column left">
+        <text>11/111</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text>计费价格：</text></view>
+      <view class="column left">
+        <text class="nowarp_space"></text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text></text></view>
+      <view class="column left">
+        <text class="nowarp_space">07：00--20：00</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text></text></view>
+      <view class="column left">
+        <text class="nowarp_space">首时间：10元/小时</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text></text></view>
+      <view class="column left">
+        <text class="nowarp_space">次时间：10元/小时</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text></text></view>
+      <view class="column left">
+        <text class="nowarp_space">20：00--07：00</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text></text></view>
+      <view class="column left">
+        <text class="nowarp_space">首时间：10元/小时</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text></text></view>
+      <view class="column left">
+        <text class="nowarp_space">次时间：10元/小时</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text>联系人：</text></view>
+      <view class="column left">
+        <text>长三</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text>联系方式：</text></view>
+      <view class="column left">
+        <text>122331</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text>位置：</text></view>
+      <view class="column left">
+        <text>香港东角铜锣湾纪利佐治街7号 百德大厦B座 12楼 B3 室</text>
+      </view>
+    </view>
+    <view class="row">
+      <view class="column_head left">
+        <text>备注：</text></view>
+      <view class="column left">
+        <text>嘻嘻嘻</text>
+      </view>
     </view>
   </view>
-  <view class="row">
-    <view class="column">
-      <text>车位数量</text></view>
-    <view class="column right">
-      <text>11/111</text>
-    </view>
-  </view>
-  <view class="row">
-    <view class="column">
-      <text>计费价格</text></view>
-    <view class="column right">
-      <text class="nowarp_space">\n07：00 - 20：00 - 10元/小时</text>
-    </view>
-  </view>
-  <view class="row">
-    <view class="column">
-      <text>联系方式</text></view>
-    <view class="column right">
-      <text>122331</text>
-    </view>
-  </view>
-  <view class="row">
-    <view class="column">
-      <text>位置</text></view>
-    <view class="column right">
-      <text>嘻嘻嘻嘻嘻嘻嘻嘻嘻</text>
-    </view>
-  </view>
-  <view class="row">
-    <view class="column">
-      <text>备注</text></view>
-    <view class="column right">
-      <text>嘻嘻嘻</text>
-    </view>
-  </view>
-  <view class="row">
+  <view class="row" style="padding-left: 15%;">
     <view class="column padding_sm">
-      <button size="default" type="primary" bindtap="toOrder">预约</button>
+      <button size="mini" type="primary" bindtap="toOrder">预约</button>
     </view>
     <view class="column padding_sm">
-      <button size="default" type="default">去这里</button>
+      <button size="mini" type="default">去这里</button>
     </view>
   </view>
 </view>

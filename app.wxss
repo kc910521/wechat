@@ -5,9 +5,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 50rpx 0;
   box-sizing: border-box;
 } 
+.padding_4_mid{
+  padding:100rpx 50rpx;
+}
 
 .row{
   display: flex;  
@@ -17,10 +20,18 @@
 }
 .column{
   display: inline-block;
-  flex:1;
+  flex:0.9;
+}
+.column_head{
+  display: inline-block;
+  flex:0.5;
+  white-space: nowrap;
 }
 .right{
   text-align: right;
+}
+.left{
+  text-align: left;
 }
 .my_container{
   padding: 20rpx 15rpx;
@@ -33,6 +44,9 @@
 }
 .nowarp_space{
   white-space: nowrap;
+}
+.padding_mini{
+  padding: 5rpx;
 }
 .padding_sm{
   padding: 8rpx;
@@ -63,9 +77,14 @@
 
 }
 .image_container>image{
-  width: 600rpx;
-  height: 350rpx;
+  width: 500rpx;
+  height: 280rpx;
 }
 .left_layout{
   align-items:baseline;
 }
+
+.font_warnning{
+  color: red;
+}
+

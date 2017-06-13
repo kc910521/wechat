@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/bdmap/bdmap",
     "pages/detail/detail",
     "pages/index/index",
@@ -9,19 +10,34 @@
     "pages/me/vkList/vk",
     "pages/order/list/list",
     "pages/order/have/confirm",
-    "pages/bluetooth/btlist"
+    "pages/bluetooth/btlist",
+    "pages/unlock/unlock",
+    "pages/parking/status",
+    "pages/order/manage/manage",
+    "pages/order/detail/detail",
+    "pages/me/login/login",
+    "pages/me/detail/detail"
   ],
   "tabBar": {
+    "backgroundColor": "#F4F4F4",
+    "color": "#919191",
+    "selectedColor": "FFFFFF",
     "list": [
       {
+        "selectedIconPath": "img/332.png",
+        "iconPath": "img/233.png",
         "pagePath": "pages/bdmap/bdmap",
         "text": "附近"
       },
       {
+        "selectedIconPath": "img/332.png",
+        "iconPath": "img/233.png",
         "pagePath": "pages/index/index",
         "text": "列表"
       },
       {
+        "selectedIconPath": "img/332.png",
+        "iconPath": "img/233.png",
         "pagePath": "pages/me/me",
         "text": "我的"
       }
@@ -29,7 +45,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#f08f08",
+    "navigationBarBackgroundColor": "#348903",
     "navigationBarTitleText": "havehavefan",
     "navigationBarTextStyle": "white"
   },

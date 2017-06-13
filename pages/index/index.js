@@ -139,7 +139,7 @@ Page({//  ===================================page
   },
   orderPos: function (e) {
     wx.navigateTo({
-      url: '../../pages/order/list/list',
+      url: '/pages/order/have/confirm',
     })
   }
 })

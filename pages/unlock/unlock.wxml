@@ -1,0 +1,19 @@
+<!--unlock.wxml-->
+<view class="container" style="padding:30px 25px;">
+  <view class="row">
+    <view class="column" style="text-align:center;">
+      <view class="section" style="border:1px solid grey;border-radius:3px;">
+        <input type="number" confirm-type="go" placeholder="输入车位号" />
+      </view>
+    </view>
+    <view class="column" style="text-align:center;">
+      <button bindtap="unlockNow" type="primary" size="mini">立即开锁</button>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column"><text>\n</text></view>
+  </view>
+  <view class="row">
+    <view class="column little_font"><text class="font_warnning">* 请将车辆开至车位附近（5米内），输入车位号进行开锁</text></view>
+  </view>
+</view>

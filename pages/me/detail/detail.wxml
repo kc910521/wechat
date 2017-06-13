@@ -1,0 +1,38 @@
+<!--detail.wxml-->
+<view class="container little_font" style="text-align:center;vertical-align:middle;">
+  <view class="row">
+    <view class="column">
+      <text style="vertical-align:middle;" >头像</text>
+    </view>
+    <view class="column">
+      <image src="/img/233.png" style="width:128rpx;height:128rpx;vertical-align:middle;border-radius:50%;"></image>
+    </view>
+  </view>
+
+  <view class="row">
+    <view class="column">
+      <text>昵称</text>
+    </view>
+    <view class="column">
+      <text>婷婷</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>性别</text>
+    </view>
+    <view class="column">
+      <text>兰</text>
+    </view>
+  </view>
+  <view class="row">
+    <view class="column">
+      <text>车牌号</text>
+    </view>
+    <view class="column">
+      <text>京AA11111</text>
+    </view>
+  </view>
+
+
+</view>
