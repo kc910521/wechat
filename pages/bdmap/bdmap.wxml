@@ -1,7 +1,14 @@
-<view class="search_container">
-  <input id="input_search" type="text" confirm-type="search" placeholder="搜索附近" bindconfirm="searchChars" value="{{searchInput}}" 
-    maxlength="20" 
-  />
+<view class="search_container" style="padding:0px 5rpx 0 5rpx; ">
+  <view class="row" style="border:1px solid #CCC;border-radius:5rpx;">
+    <view class="column" style="flex:0.1;">
+      <image style="height:64rpx;width:64rpx;" src="../../img/marker_yellow.png"></image>
+    </view>
+    <view class="column">
+      <input id="input_search" type="text" confirm-type="search" placeholder="搜索附近停车场" bindconfirm="searchChars" value="{{searchInput}}" 
+        maxlength="20"  class="little_font"
+      />
+    </view>
+  </view>
 </view>
 <view class="map_container"> 
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}"  show-location="true" markers="{{markers}}" 

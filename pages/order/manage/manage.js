@@ -106,8 +106,8 @@ Page({
   },
   // 滑动底部加载
   lower: function () {
-    console.log('滑动底部加载', new Date());
     var that = this;
+    console.log('滑动底部加载' + that.data.page, new Date());
     that.setData({
       page: that.data.page + 1
     });

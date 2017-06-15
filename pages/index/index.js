@@ -9,10 +9,11 @@ var QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js');
 var qqmapsdk;
 Page({//  ===================================page
   data: {
-    motto: ['Hello World','ssssss'],
+    pageNum: 1,
     toView: 'red',
     scrollTop: 100,
-    markerInfs: []
+    markerInfs: [],
+    hidden: false
   },
   onShareAppMessage: function () {
     return {
@@ -26,6 +27,22 @@ Page({//  ===================================page
         // 转发失败
       }
     }
+  },
+  // 下拉刷新回调接口
+  onPullDownRefresh1: function (e) {
+    let that = this;
+    console.log('onPullDownRefresh   ==========');
+    that.setData({
+      markerInfs: []
+    })
+    this.haveSearch('停车场', 0);
+  },
+  /**
+ * 页面上拉触底事件的处理函数
+ */
+  onReachBottom: function () {
+    this.lower();
+    console.log('上拉daodibu', new Date());
   },
   //事件处理函数
   goToPos:function(e){
@@ -66,13 +83,14 @@ Page({//  ===================================page
     this.haveSearch(e.detail.value,0);
   },
   haveSearch: function(chars,pgno){
-    var that = this
+    var that = this;
+    that.setData({ hidden: false });
     qqmapsdk.search({
       keyword: chars,
       success: function(dt){
         if (dt.status == 0){
           that.setData({
-            markerInfs:Ut.converToShowPoint(dt.data)
+            markerInfs: that.data.markerInfs.concat(Ut.converToShowPoint(dt.data))
           })
         }
         console.log(dt);
@@ -83,6 +101,7 @@ Page({//  ===================================page
       },
       complete: function(res) {
           console.log(res);
+          that.setData({ hidden: true });
       }
     });
   },
@@ -141,5 +160,15 @@ Page({//  ===================================page
     wx.navigateTo({
       url: '/pages/order/have/confirm',
     })
+  },
+  lower: function () {
+    
+    var that = this;
+    that.setData({
+      pageNum: that.data.pageNum + 1
+    });
+    console.log('滑动底部加载' + that.data.pageNum, new Date());
+    this.haveSearch('停车场', that.data.pageNum);
+    // this.getData({ page: that.data.page });
   }
 })

@@ -7,7 +7,7 @@
         <navigator url="/pages/order/detail/detail?id={{item.id}}">
           <view class="posts-list-info" index="{{index}}">
             <view class="row">
-              <view class="column huge_font">
+              <view class="column little_font" style="font-weight:bold;">
                 <text>{{item.author.loginname}}停车场</text>
               </view>
               <view class="column" style="text-align:right;">

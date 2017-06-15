@@ -4,8 +4,9 @@
 </view>
 <view class="my_container border_top details_font">
   <view class="image_container">
-    <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1495704444&di=55d77a35c27b1c8384c207502c6d6669&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.yhouse.com%2Flife%2Fimage%2F20140513%2F20140513155139_905.jpg"></image>
-
+    <image class="main_image" src="{{currImgUrl}}"></image>
+    <image src="../../img/arrow_left.png" class="sm_img" style="position:absolute;top:90rpx;left:5rpx;" bindtap="toPrev"></image>
+    <image src="../../img/arrow_right.png" class="sm_img" style="position:absolute;top:90rpx;right:5rpx;" bindtap="toNxt"></image>
   </view>
   <view class="pk_inf_container little_font" style="padding-left:12%">
     <view class="row">
@@ -108,6 +109,7 @@
       </view>
     </view>
   </view>
+  <text>\n</text>
   <view class="row" style="padding-left: 15%;">
     <view class="column padding_sm">
       <button size="mini" type="primary" bindtap="toOrder">预约</button>

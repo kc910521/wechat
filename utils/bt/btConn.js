@@ -32,11 +32,11 @@ export default class btConn {
     let that = this;
     wx.openBluetoothAdapter({
       success: (res) => {
-        wx.showToast({ title: "初始化蓝牙适配器成功！" + JSON.stringify(res)});
+        wx.showToast({ duration: 4000 ,title: "初始化蓝牙适配器成功！" + JSON.stringify(res)});
         that.onStateListerner();
       },
       fail: () => {
-        wx.showToast({ title: '初始化蓝牙适配器失败，请打开蓝牙后重试'});
+        wx.showToast({ duration: 4500, title: '初始化蓝牙适配器失败，请打开蓝牙后重试'});
         that.available = false;
       }
     })
@@ -55,7 +55,7 @@ export default class btConn {
   }
   search(){
     let that = this;
-    stopSearch();
+    this.stopSearch();
     wx.startBluetoothDevicesDiscovery({
       //services: ['0000ffe0-0000-1000-8000-00805f9b34fb'],
       success: (res) => {
@@ -115,7 +115,7 @@ export default class btConn {
       }
     })
   }
-  connTo(did){
+  connTo(did,succCb,failCb){
     let that = this;
     that.realCode = null;
     wx.createBLEConnection({
@@ -123,12 +123,14 @@ export default class btConn {
       success: function (res) {
         console.log("连接成功" + did);
         that.connectedDeviceId = did;
+        succCb();
       },
       fail: function () {
         console.log("连接失败");
+        failCb();
       }
     })
-  }
+  };
   disConnTo(did){
     let that = this;
     wx.closeBLEConnection({
@@ -138,7 +140,10 @@ export default class btConn {
       }
     })
   };
-  sendOperCode(operCode){
+  unlock(){
+
+  };
+  sendOperCode(operCode,succCb,failCb){
     var that = this;
     console.log('passwd' + that.realCode);
     if (that.realCode) {
@@ -166,11 +171,15 @@ export default class btConn {
         characteristicId: '0000ffe1-0000-1000-8000-00805f9b34fb',// that.data.writeCharacteristicsId,
         // 这里的value是ArrayBuffer类型  
         value: buffer,
+        fail: function(){
+          failCb();
+        },
         success: function (res) {
           that.setData({
             jieshou: JSON.stringify(res)
           })
           console.log('writeBLECharacteristicValue success ', res.errMsg)
+          succCb();
         }
       })
     }
@@ -180,7 +189,7 @@ export default class btConn {
    * 登陆蓝牙地锁用
    */
   //B434085CA1BF65E536A0DE80D7877D729FB2
-  sendCode(orgHex){
+  sendCode(orgHex, succCb, failCb){
     let that = this;
     wx.onBLECharacteristicValueChange(function (characteristic) {
       console.log("===================== characteristic be here ===========================");
@@ -217,11 +226,13 @@ export default class btConn {
       characteristicId: '0000ffe1-0000-1000-8000-00805f9b34fb',// that.data.writeCharacteristicsId,
       // 这里的value是ArrayBuffer类型  
       value: buffer,
-      success: function (res) {
-        // that.setData({
-        //   jieshou: JSON.stringify(res)
-        // })
-        console.log('writeBLECharacteristicValue success', res.errMsg)
+      success: function(res){
+        console.log(res);
+        succCb();
+      },
+      fail: function(){
+        console.log('writeBLECharacteristicValue fail');
+        failCb();
       }
     })
   }

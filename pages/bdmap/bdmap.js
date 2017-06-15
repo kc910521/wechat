@@ -20,17 +20,17 @@ Page({
         openLocationPm: {},
         controls: [{
             id: 99000,
-            iconPath: '../../img/marker_yellow.png',
+            iconPath: '../../img/zen-icons-pencil.png',
             position: {
                 left: 10,
-                top: 350,
+                top: 370,
                 width: 50,
                 height: 50
             },
             clickable: true
         },{
             id: 99001,
-            iconPath: '../../img/marker_yellow.png',
+            iconPath: '../../img/zen-icons-lock-open.png',
             position: {
               left: 170,
               top: 370,
@@ -46,7 +46,7 @@ Page({
             this.mapCtx.moveToLocation()
         } else if (e.controlId == 99001){
             wx.navigateTo({
-              url: '/pages/parking/status',
+              url: '/pages/detail/detail',
             })
         }
     },

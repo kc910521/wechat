@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    avatorPath: '/img/233.png'
   },
 
   /**
@@ -62,5 +62,23 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  changeAvator: function(e){
+    let that = this;
+    wx.chooseImage({
+      count: 1,
+      success: function (res) {
+        wx.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: function (res) {
+            console.log(res.width + '' + res.height);
+            console.log(res.path)
+            that.setData({
+              avatorPath: res.path
+            });
+          }
+        })
+      }
+    })
   }
 })

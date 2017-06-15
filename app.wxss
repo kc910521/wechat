@@ -35,6 +35,7 @@
 }
 .my_container{
   padding: 20rpx 15rpx;
+  position: relative;
 }
 
 
@@ -73,10 +74,10 @@
   justify-content:space-between;
   text-align: center;
   flex-direction:unset;
-
+  position: relative;
 
 }
-.image_container>image{
+.image_container>.main_image{
   width: 500rpx;
   height: 280rpx;
 }
@@ -88,3 +89,7 @@
   color: red;
 }
 
+.sm_img{
+  width:64rpx;
+  height: 64rpx;
+}

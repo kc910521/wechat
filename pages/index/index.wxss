@@ -36,11 +36,11 @@ map {
   align-items: center;
 }
 .l_pk_img{
-  height: 180rpx;
+  height: 140rpx;
 }
 .l_pk_img>image{
   width: 200rpx;
-  height: 120rpx;
+  height: 138rpx;
 }
 .l_pk_img,.r_pk_inf{
 

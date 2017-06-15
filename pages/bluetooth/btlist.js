@@ -172,7 +172,8 @@ Page({
   //连接设备  
   connectTO: function (e) {
     var that = this;
-    btc.connTo(e.currentTarget.id);
+    console.log(e.currentTarget.id);
+    btc.connTo('00:15:83:00:43:49');
     // console.log('e.currentTarget.id:' + e.currentTarget.id);
     // wx.createBLEConnection({
     //   deviceId: e.currentTarget.id,

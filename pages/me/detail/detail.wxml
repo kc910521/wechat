@@ -1,11 +1,11 @@
 <!--detail.wxml-->
 <view class="container little_font" style="text-align:center;vertical-align:middle;">
-  <view class="row">
+  <view class="row" style="padding:30rpx 0;">
     <view class="column">
-      <text style="vertical-align:middle;" >头像</text>
+      <text style="vertical-align:middle;" >\n头像</text>
     </view>
-    <view class="column">
-      <image src="/img/233.png" style="width:128rpx;height:128rpx;vertical-align:middle;border-radius:50%;"></image>
+    <view class="column" bindtap="changeAvator">
+      <image src="{{avatorPath}}" class="my_avator" ></image>
     </view>
   </view>
 
@@ -14,7 +14,7 @@
       <text>昵称</text>
     </view>
     <view class="column">
-      <text>婷婷</text>
+      <input type="text" value="婷婷" />
     </view>
   </view>
   <view class="row">
@@ -22,15 +22,15 @@
       <text>性别</text>
     </view>
     <view class="column">
-      <text>兰</text>
+     <input type="text" value="兰" />
     </view>
   </view>
-  <view class="row">
-    <view class="column">
+  <view class="row" style="border-bottom:none;">
+    <view class="column" >
       <text>车牌号</text>
     </view>
     <view class="column">
-      <text>京AA11111</text>
+      <input type="text" value="京AA11111" />
     </view>
   </view>
 

@@ -41,7 +41,7 @@
     </navigator>
   </view>
   <view class="block_normal">
-    <navigator url="url">
+    <navigator url="/pages/bluetooth/btlist">
       <image src="../../img/marker_red.png"></image>
       <text>关于我们</text>
     </navigator>

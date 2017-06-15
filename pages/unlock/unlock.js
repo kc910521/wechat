@@ -1,4 +1,10 @@
 // unlock.js
+//获取应用实例  
+var app = getApp();
+var CryptoJS = require('../../utils/aes/crypto-js');
+import btConn from '../../utils/bt/btConn'
+
+let btc = new btConn();
 Page({
 
   /**
@@ -12,7 +18,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    btc.createConn();
+    btc.stopSearch();
   },
 
   /**
@@ -26,7 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    btc.search();
   },
 
   /**
@@ -64,8 +71,24 @@ Page({
   
   },
   unlockNow: function(e) {
-    wx.navigateTo({
+    btc.connTo('00:15:83:00:43:49',
+      () => {
+        wx.showToast({ duration: 4000, title: "连接成功" });
+        btc.sendCode('B434085CA1BF65E536A0DE80D7877D729FB2',
+          () => {
+            wx.showToast({ duration: 4000, title: "fasong成功" });
+          },
+          () => {
+            wx.showToast({ duration: 4000, title: "fasong fail" });
+          }
+        )
+      },
+      () => {
+        wx.showToast({ duration: 4000, title: "连接失败" });
+      }
+    );
+    wx.redirectTo({
       url: '/pages/parking/status',
-    })
+    });
   }
 })

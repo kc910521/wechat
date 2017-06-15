@@ -1,17 +1,20 @@
 <!--index.wxml-->
 <view class="my_container">
-  <view class="section" style="border:1px solid grey;border-radius:3px;">
-    <input type="text" confirm-type="search" placeholder="搜索" bindconfirm="searchConf"/>
+  <view class="section row" style="border:1px solid grey;border-radius:3px;">
+    <view class="row" style="flex:0.1">
+      <image style="width:64rpx;height:64rpx;" src="../../img/233.png"></image>
+    </view>
+    <view class="row"><input type="text"  class="little_font" confirm-type="search" placeholder="搜索附近停车场" bindconfirm="searchConf" style="width:100%;height:100%;padding-left:6rpx;" /></view>
   </view>
 
-  <scroll-view scroll-y="true" style="height: 800px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll"
+  <scroll-view scroll-y="true" style="height: 1000rpx;"  bindscrolltoupper="onPullDownRefresh1"
     scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{markerInfs}}">
 
     <view wx:for="{{markerInfs}}" vx:wx:key="{{item.title}}" class="scroll-view-item bc_green" >
       <navigator url="/pages/detail/detail">
         <view class="part1_inf">
           <view class="l_pk_img">
-            <image src="../../img/pk.jpg"></image>
+            <image src="http://www.studentart.com.cn/attachment/201405/5/23627_1399301553MR8Z_t5.jpg"></image>
           </view>
           <view class="r_pk_inf">
             <text class="txt_title">{{item.title}}\n</text>
@@ -46,6 +49,8 @@
     </view>
 
   </scroll-view>
-
+<loading class="loading" hidden="{{hidden}}">
+  <text class="loading-font">加载中...</text>
+</loading>
   
 </view>

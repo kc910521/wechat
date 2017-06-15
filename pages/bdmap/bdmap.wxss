@@ -29,7 +29,7 @@ map{
     z-index: 99999;
 }
 #input_search{
-    border: 1px solid darkgray;
+    /*border: 1px solid darkgray;*/
     margin-top: 4px;
     /*display:block;
     position:absolute;

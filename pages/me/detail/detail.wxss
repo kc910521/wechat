@@ -3,3 +3,9 @@
   padding: 40rpx 0px;
   border-bottom: 1px solid #EEE;
 }
+.my_avator{
+  width:128rpx;
+  height:128rpx;
+  vertical-align:middle;
+  border-radius:50%;
+}

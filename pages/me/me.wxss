@@ -43,9 +43,9 @@
   padding-left: 40rpx;
   /*display: inline-block;*/
 }
-.block_normal:hover{
+/*.block_normal:hover{
   background-color: chocolate;
-}
+}*/
 .block_normal image{
   width: 50rpx;
   height: 50rpx;
