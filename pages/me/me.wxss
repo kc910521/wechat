@@ -21,26 +21,29 @@
 
 }
 .container_i {
+  overflow-x: hidden;
   background-color: #348813;
   color: white;
 }
 .container_j {
-  padding: auto 0px;
+  overflow-x: hidden;
+  /*padding: auto 0px;*/
   text-align: center;
-  width:100%;
-  height:400px;
-  display:block;
-  align-items:center;
+  /*width:100%;*/
+  height:700rpx;
+  /*display:block;
+  align-items:center;*/
 
 }
 .block_normal{
-  width: 100%;
+  overflow-x: hidden;
+  width: 90%;
   height: 100rpx;
   color: black;
-  margin: 10rpx;
+  /*margin: 0 10rpx;*/
   text-align: left;
   border-bottom: 1px solid #EEE;
-  padding-left: 40rpx;
+  padding: 10rpx 40rpx ;
   /*display: inline-block;*/
 }
 /*.block_normal:hover{

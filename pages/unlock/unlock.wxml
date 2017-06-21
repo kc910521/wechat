@@ -7,7 +7,7 @@
       </view>
     </view>
     <view class="column" style="text-align:center;">
-      <button bindtap="unlockNow" type="primary" size="mini">立即开锁</button>
+      <button bindtap="unlockNow" type="primary" size="mini" disabled="{{lockDisabled}}">立即开锁</button>
     </view>
   </view>
   <view class="row">

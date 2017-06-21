@@ -2,21 +2,21 @@
 <view class="container" style="padding:30rpx 16rpx;text-align:center;">
   <view class="row">
     <view class="column" style="text-align:center;">
-      <image style="width:250rpx;height:150rpx;" src="../../../img/pk.jpg"></image>
+      <image style="width:250rpx;height:150rpx;" src="../../../img/marker_yellow.png"></image>
     </view>
   </view>
   <view class="row">
     <view class="column">
       <view class="input_border input_group row">
         <view class="column" style="flex:0.25;"><text class="gp_span" style="width:120rpx;">+86</text></view>
-        <view class="column"><input type="number" maxlength="11" placeholder="请输入手机号"/></view>
+        <view class="column"><input type="number" maxlength="11" placeholder="请输入手机号" bindinput="bindKeyInput"/></view>
       </view>
     </view>
   </view>
   <view class="row">
     <view class="column">
       <view class="input_border input_group row">
-        <view class="column"><input type="number" placeholder="输入验证码" maxlength="6" style="padding-left:9rpx;"/></view>
+        <view class="column"><input type="text" placeholder="输入验证码" maxlength="6" style="padding-left:9rpx;"/></view>
         <view class="column" style="flex:0.7">
           <button type="primary" style="border-radius:0px;border:0px;line-height:2.2;" loading="true" >发送验证码</button>
         </view>
@@ -32,6 +32,7 @@
     </view>
   </view>
   <text>\n</text>
+  <text class="little_font font_warnning">{{warnningInfo}}</text>
   <view class="row little_font">
     <view class="column">
       <checkbox-group  bindchange="changeCkbox" style="display:inline-block;">

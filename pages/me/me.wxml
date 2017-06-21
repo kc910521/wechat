@@ -6,8 +6,9 @@
         <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       </view>
       <view class="usrinf_right_blk">
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        <text class="userinfo-nickname">\n{{userInfo.city}}</text>
+        <text class="userinfo-nickname" wx:if="{{userInfo.name == null}}">{{userInfo.nickName}}</text>
+        <text class="userinfo-nickname" wx:else>{{userInfo.name}}</text>
+        <text class="userinfo-nickname">\n{{userInfo.phone}}</text>
         <!--<text class="user-motto" wx:if="{{motto}}"
         wx:for="{{motto}}" wx:for-index="idx" wx:for-item="itm">{{idx+1}}:{{itm}}</text>-->
       </view>
@@ -47,10 +48,10 @@
     </navigator>
   </view>
   <view class="block_normal">
-    <navigator url="url">
+    <view bindtap="logout">
       <image src="../../img/marker_red.png"></image>
       <text>退出登录</text>
-    </navigator>
+    </view>
   </view>
 </view>
 

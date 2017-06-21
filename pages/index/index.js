@@ -80,6 +80,9 @@ Page({//  ===================================page
     this.haveSearch('停车场',0);
   },
   searchConf: function(e){
+    this.setData({
+      markerInfs: []
+    })
     this.haveSearch(e.detail.value,0);
   },
   haveSearch: function(chars,pgno){

@@ -28,16 +28,22 @@ export default class btConn {
       this.available = res.available;
     })
   }
-  createConn(){
+  createConn(succCallback,failCallback){
     let that = this;
     wx.openBluetoothAdapter({
       success: (res) => {
         wx.showToast({ duration: 4000 ,title: "初始化蓝牙适配器成功！" + JSON.stringify(res)});
         that.onStateListerner();
+        if (succCallback){
+          succCallback();
+        }
       },
       fail: () => {
         wx.showToast({ duration: 4500, title: '初始化蓝牙适配器失败，请打开蓝牙后重试'});
         that.available = false;
+        if (failCallback){
+          failCallback();
+        }
       }
     })
   };
@@ -172,14 +178,20 @@ export default class btConn {
         // 这里的value是ArrayBuffer类型  
         value: buffer,
         fail: function(){
-          failCb();
+          if (failCb){
+            failCb();
+          }
+          
         },
         success: function (res) {
           that.setData({
             jieshou: JSON.stringify(res)
           })
           console.log('writeBLECharacteristicValue success ', res.errMsg)
-          succCb();
+          if (succCb){
+            succCb();
+          }
+          
         }
       })
     }
@@ -228,7 +240,7 @@ export default class btConn {
       value: buffer,
       success: function(res){
         console.log(res);
-        succCb();
+        succCb(res);
       },
       fail: function(){
         console.log('writeBLECharacteristicValue fail');

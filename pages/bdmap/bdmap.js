@@ -46,7 +46,7 @@ Page({
             this.mapCtx.moveToLocation()
         } else if (e.controlId == 99001){
             wx.navigateTo({
-              url: '/pages/detail/detail',
+              url: '/pages/unlock/unlock',
             })
         }
     },

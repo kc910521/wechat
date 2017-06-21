@@ -14,7 +14,7 @@
       <text>昵称</text>
     </view>
     <view class="column">
-      <input type="text" value="婷婷" />
+      <input type="text" value="{{usrName}}"  bindinput="changeUsrNm" />
     </view>
   </view>
   <view class="row">
@@ -30,9 +30,10 @@
       <text>车牌号</text>
     </view>
     <view class="column">
-      <input type="text" value="京AA11111" />
+      <input type="text" value="{{plateNumber}}" bindinput="changePltNb"/>
     </view>
   </view>
 
+<button type="primary" bindtap="commitChange">提交并返回</button>
 
 </view>

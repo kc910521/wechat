@@ -1,11 +1,14 @@
 // login.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    vertified: false
+    vertified: false,
+    phoneNumber: '',
+    warnningInfo: ''
   },
 
   /**
@@ -75,8 +78,49 @@ Page({
     }
   },
   toLogin: function(e){
-    wx.switchTab({
-      url: '/pages/me/me',
+    let that = this;
+    console.log('ss' + that.data.phoneNumber);
+    wx.request({
+      url: app.rootUrl + '/driver/login',
+      method: 'POST',
+      data: {
+        phone: that.data.phoneNumber + '',
+        verCode: '911'
+      },
+      success: (res) => {
+        if (res.data && res.data.code == 0){
+          //得到用户id
+          let usr = res.data.payload;
+          console.log(usr);
+          wx.setStorage({
+            key: app.userInfoKey,
+            data: usr,
+            success: () => {
+              wx.switchTab({
+                url: '/pages/me/me',
+              })
+            }
+          })
+
+        }else{
+          that.setData({
+            warnningInfo: res.data.description
+          });
+        }
+      },
+      fail: (e) => {
+        that.setData({
+          warnningInfo: '网络不稳定，登陆失败'
+        });
+        console.log(e);
+      }
     })
-  }
+
+
+  },
+  bindKeyInput: function (e) {
+    this.setData({
+      phoneNumber: e.detail.value
+    })
+  },
 })
